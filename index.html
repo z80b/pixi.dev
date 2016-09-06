@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>PIXI</title>
+        <style type="text/css">.b-tile,.b-tiles{display:block}.b-tiles::after{content:'';display:table;clear:both}.b-tile{text-decoration:none;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;border:1px solid #eee}.b-tile__image{display:block;width:100%}.b-tile__image-wrapper{position:relative;background:#f5f5f5}.b-tile__image-wrapper::after{content:'';display:block;position:absolute;top:0;left:0;width:100%;height:100%;background:-webkit-radial-gradient(ellipse,#999,#000);background:-moz-radial-gradient(ellipse,#999,#000);background:-o-radial-gradient(ellipse,#999,#000);background:radial-gradient(ellipse,#999,#000);opacity:0;-webkit-transition:.5s opacity ease;-o-transition:.5s opacity ease;-moz-transition:.5s opacity ease;transition:.5s opacity ease}.b-tile:hover .b-tile__image-wrapper::after{opacity:.5}.b-tile__info{text-align:center;padding:1em 0}.b-tile__title{font-size:2em;line-height:1.5;font-weight:700;color:#333}.b-tile__description{font-size:1.2em;line-height:1.5;color:#777}body,html{min-height:100%}html{font:10px/1 Arial}body{font-size:1.2rem}.b-scene{display:block;width:640px;height:480px;margin:0 auto}.b-tile{font-size:12px;width:24%;margin:0 1.333333333333333% 1.333333333333333% 0}.b-tiles{padding:30px}.b-tiles .b-tile{float:left}.b-tiles .b-tile:nth-of-type(4n){margin-right:0}</style>
+        <script type="text/javascript" src="js/pixi.min.js"></script>
+    </head>
+    <body>
+        <div class="b-wrapper">
+            <div id="scene" class="b-scene"></div>
+            <div class="b-tiles"><a href="/" class="b-tile">
+                    <div class="b-tile__image-wrapper"><img src="images/cat.png" class="b-tile__image"/></div>
+                    <div class="b-tile__info">
+                        <div class="b-tile__title">Title 01</div>
+                        <div class="b-tile__description">Description 01</div>
+                    </div></a><a href="/" class="b-tile">
+                    <div class="b-tile__image-wrapper"><img src="images/cat.png" class="b-tile__image"/></div>
+                    <div class="b-tile__info">
+                        <div class="b-tile__title">Title 02</div>
+                        <div class="b-tile__description">Description 02</div>
+                    </div></a><a href="/" class="b-tile">
+                    <div class="b-tile__image-wrapper"><img src="images/cat.png" class="b-tile__image"/></div>
+                    <div class="b-tile__info">
+                        <div class="b-tile__title">Title 03</div>
+                        <div class="b-tile__description">Description 03</div>
+                    </div></a><a href="/" class="b-tile">
+                    <div class="b-tile__image-wrapper"><img src="images/cat.png" class="b-tile__image"/></div>
+                    <div class="b-tile__info">
+                        <div class="b-tile__title">Title 04</div>
+                        <div class="b-tile__description">Description 04</div>
+                    </div></a><a href="/" class="b-tile">
+                    <div class="b-tile__image-wrapper"><img src="images/cat.png" class="b-tile__image"/></div>
+                    <div class="b-tile__info">
+                        <div class="b-tile__title">Title 05</div>
+                        <div class="b-tile__description">Description 05</div>
+                    </div></a><a href="/" class="b-tile">
+                    <div class="b-tile__image-wrapper"><img src="images/cat.png" class="b-tile__image"/></div>
+                    <div class="b-tile__info">
+                        <div class="b-tile__title">Title 06</div>
+                        <div class="b-tile__description">Description 06</div>
+                    </div></a><a href="/" class="b-tile">
+                    <div class="b-tile__image-wrapper"><img src="images/cat.png" class="b-tile__image"/></div>
+                    <div class="b-tile__info">
+                        <div class="b-tile__title">Title 07</div>
+                        <div class="b-tile__description">Description 07</div>
+                    </div></a><a href="/" class="b-tile">
+                    <div class="b-tile__image-wrapper"><img src="images/cat.png" class="b-tile__image"/></div>
+                    <div class="b-tile__info">
+                        <div class="b-tile__title">Title 08</div>
+                        <div class="b-tile__description">Description 08</div>
+                    </div></a><a href="/" class="b-tile">
+                    <div class="b-tile__image-wrapper"><img src="images/cat.png" class="b-tile__image"/></div>
+                    <div class="b-tile__info">
+                        <div class="b-tile__title">Title 09</div>
+                        <div class="b-tile__description">Description 09</div>
+                    </div></a><a href="/" class="b-tile">
+                    <div class="b-tile__image-wrapper"><img src="images/cat.png" class="b-tile__image"/></div>
+                    <div class="b-tile__info">
+                        <div class="b-tile__title">Title 10</div>
+                        <div class="b-tile__description">Description 10</div>
+                    </div></a><a href="/" class="b-tile">
+                    <div class="b-tile__image-wrapper"><img src="images/cat.png" class="b-tile__image"/></div>
+                    <div class="b-tile__info">
+                        <div class="b-tile__title">Title 11</div>
+                        <div class="b-tile__description">Description 11</div>
+                    </div></a><a href="/" class="b-tile">
+                    <div class="b-tile__image-wrapper"><img src="images/cat.png" class="b-tile__image"/></div>
+                    <div class="b-tile__info">
+                        <div class="b-tile__title">Title 12</div>
+                        <div class="b-tile__description">Description 12</div>
+                    </div></a>
+            </div>
+        </div>
+        <script type="text/javascript">var Scene, Unit, scene,
+  bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+
+Scene = (function() {
+  function Scene(container, options) {
+    this.container = container;
+    this.options = options;
+    this.animate = bind(this.animate, this);
+    this.add = bind(this.add, this);
+    this.render = bind(this.render, this);
+    this.renderer = PIXI.autoDetectRenderer(this.options.width, this.options.height);
+    this.stage = new PIXI.Container();
+    this.scaleStep = 0.05;
+    this.container.appendChild(this.renderer.view);
+    this.renderer.backgroundColor = this.options.color;
+    PIXI.loader.add('images/cat.png').load(this.render);
+  }
+
+  Scene.prototype.render = function() {
+    this.thing = new PIXI.Sprite(PIXI.loader.resources['images/cat.png'].texture);
+    this.thing.position.set(320, 240);
+    this.thing.anchor.set(0.5, 0.5);
+    this.stage.addChild(this.thing);
+    this.renderer.render(this.stage);
+    return this.animate();
+  };
+
+  Scene.prototype.add = function(el) {};
+
+  Scene.prototype.animate = function() {
+    requestAnimationFrame(this.animate);
+    this.thing.rotation += 0.1;
+    this.thing.scale.x += this.scaleStep;
+    this.thing.scale.y += this.scaleStep;
+    if (this.thing.scale.x > 2 || this.thing.scale.x < -2) {
+      this.scaleStep *= -1;
+    }
+    return this.renderer.render(this.stage);
+  };
+
+  return Scene;
+
+})();
+
+Unit = (function() {
+  function Unit(options) {
+    this.options = options;
+    this.object = PIXI.Sprite(PIXI.loader.resources[this.options.texture].texture);
+    this.object.anchor.set(0.5, 0.5);
+  }
+
+  Unit.prototype.render = function() {};
+
+  return Unit;
+
+})();
+
+scene = new Scene(document.getElementById('scene'), {
+  width: 640,
+  height: 480,
+  color: 0xEEEEEE
+});
+</script>
+    </body>
+</html>

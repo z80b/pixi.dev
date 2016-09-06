@@ -1,0 +1,16 @@
+include ./mixins.jade
+
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        block title
+        if __styles
+            style(type="text/css")!= __styles
+        script(type="text/javascript" src="js/pixi.min.js")
+
+    body
+        block body
+        if __scripts
+            script(type="text/javascript")!= __scripts
+

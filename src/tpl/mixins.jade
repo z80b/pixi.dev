@@ -1,0 +1,7 @@
+mixin tile(title, description, image, link)
+    a.b-tile(href= link)
+        .b-tile__image-wrapper
+            img.b-tile__image(src="images/#{image}")
+        .b-tile__info
+            .b-tile__title= title
+            .b-tile__description= description
